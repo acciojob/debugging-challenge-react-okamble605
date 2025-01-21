@@ -1,28 +1,25 @@
-import React, { Component } from "react";
-import '../styles/App.css';
+import React from 'react';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            text: "",
-        };
-        this.handleChange = this.handleChange.bind(this);
-    }
+function App() {
+  const handleClick = () => {
+    alert('Button clicked!');
+  };
 
-    handleChange(event) {
-        this.setState({ text: event.target.value });
-    }
-
-    render() {
-        return (
-            <div className="container">
-                <label htmlFor="textInput">Enter Text:</label>
-                <input id="textInput" type="text" value={this.state.text} onChange={this.handleChange} />
-                <button onClick={() => alert(this.state.text)}>Show Text</button>
-            </div>
-        );
-    }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Welcome to My App</h1>
+        <label htmlFor="username">Username:</label>
+        <input id="username" type="text" />
+        
+        <button onClick={handleClick}>Click Me</button>
+        
+        <div style={{ color: 'red', fontSize: '20px' }}>
+          This is a styled div.
+        </div>
+      </header>
+    </div>
+  );
 }
 
 export default App;
