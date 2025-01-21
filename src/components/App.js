@@ -1,17 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { Component } from "react";
 import '../styles/App.css';
 
-const App = () => {
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: "",
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
 
-  let [count, setCount] = useState(0)
+    handleChange(event) {
+        this.setState({ text: event.target.value });
+    }
 
-  return (
-    <div class="ball">
-      <h1 class="count" ondoubleclick={() => { alert("cant edit it") }}>{count}</h1>
-      <button class='increment-button' onclick={() => { setCount(count + 1) }}>Increment</button>
-    </div>
-  )
+    render() {
+        return (
+            <div className="container">
+                <label htmlFor="textInput">Enter Text:</label>
+                <input id="textInput" type="text" value={this.state.text} onChange={this.handleChange} />
+                <button onClick={() => alert(this.state.text)}>Show Text</button>
+            </div>
+        );
+    }
 }
-
 
 export default App;
