@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
 
 function App() {
   return (
-    <div className="App">
-      <button onClick={() => alert('Button clicked!')}>Click Me</button>
+    <div className="container">
+      <label htmlFor="username">Username:</label>
+      <input type="text" id="username" onChange={() => console.log("Changed")} />
+      <button onClick={() => alert("Clicked!")}>Click Me</button>
     </div>
   );
 }
